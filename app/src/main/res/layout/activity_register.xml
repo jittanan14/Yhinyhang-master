@@ -349,16 +349,25 @@
                 android:orientation="vertical"
                 android:padding="10dp">
 
-                <EditText
-                    android:id="@+id/food_lose"
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18dp"
+                    android:fontFamily="@font/printable4u"
+                    android:textColor="#708090"
+                    android:text="วัตถุดิบที่แพ้" />
+
+                <TextView
+                    android:id="@+id/food_lose_textview"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textSize="18dp"
+                    android:textColorHint="#708090"
+                    android:hint="กรุณาเลือกวัตถุดิบที่แพ้"
+                    android:fontFamily="@font/printable4u"
                     android:drawableLeft="@drawable/ic_harvest"
                     android:drawablePadding="5dp"
-                    android:fontFamily="@font/printable4u"
-                    android:hint="ชื่อวัตถุดิบอาหารที่แพ้ (ถ้าไม่มี ให้ -)"
-                    android:inputType="textEmailAddress"
-                    android:textColorHint="#708090" />
+                    />
 
             </LinearLayout>
 

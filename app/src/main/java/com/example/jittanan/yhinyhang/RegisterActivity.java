@@ -18,7 +18,6 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
@@ -30,11 +29,14 @@ import com.example.jittanan.yhinyhang.api.RetrofitClient;
 import com.example.jittanan.yhinyhang.models.DefaultResponse;
 
 import java.io.ByteArrayOutputStream;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.regex.Pattern;
 
 import de.hdodenhof.circleimageview.CircleImageView;
+import in.galaxyofandroid.spinerdialog.OnSpinerItemClick;
+import in.galaxyofandroid.spinerdialog.SpinnerDialog;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -48,7 +50,7 @@ public class RegisterActivity extends AppCompatActivity implements DatePickerDia
     TextView yhinyhang;
     ImageView profile;
     Button back_login;
-    EditText food_lose;
+
     TextInputLayout Text_Email;
     TextInputLayout Pass_word;
     TextInputLayout confirm_pass;
@@ -62,6 +64,9 @@ public class RegisterActivity extends AppCompatActivity implements DatePickerDia
     RadioGroup radioGroup_gender;
     CircleImageView pic_profile;
 
+    ArrayList<String> item = new ArrayList<>();
+    SpinnerDialog spinnerDialog;
+    TextView food_lose;
     Button okay;
     String string_element;
     int e;
@@ -87,22 +92,31 @@ public class RegisterActivity extends AppCompatActivity implements DatePickerDia
 
         getSupportActionBar().hide();
 
+        initItems();
+        spinnerDialog = new SpinnerDialog(RegisterActivity.this,item,"กรุณาเลือกวัตถุดิบที่แพ้");
+        spinnerDialog.bindOnSpinerListener(new OnSpinerItemClick() {
+            @Override
+            public void onClick(String item, int position) {
+               food_lose.setText(item);
+            }
+        });
+
+       food_lose = (TextView)findViewById(R.id.food_lose_textview);
+       food_lose.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+               spinnerDialog.showSpinerDialog();
+           }
+       });
+
         date_birth = findViewById(R.id.date_birth);
         text_view_birth = findViewById(R.id.text_date);
         element_name = findViewById(R.id.element);
         yhinyhang = findViewById(R.id.body);
-        food_lose = findViewById(R.id.food_lose);
+        food_lose = findViewById(R.id.food_lose_textview);
         back_login = findViewById(R.id.button_back_login);
         radioGroup_gender = findViewById(R.id.radioGroup_gender);
         CircleImageViewProfile = findViewById(R.id.pic_user);
-
-        back_login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
-                startActivity(intent);
-            }
-        });
 
         // user
         Text_Email = findViewById(R.id.TextEmail);
@@ -114,7 +128,7 @@ public class RegisterActivity extends AppCompatActivity implements DatePickerDia
         text_birth = findViewById(R.id.text_date);
         text_element = findViewById(R.id.element);
         text_body = findViewById(R.id.body);
-        food_lose = findViewById(R.id.food_lose);
+        food_lose = findViewById(R.id.food_lose_textview);
         pic_profile = findViewById(R.id.pic_user);
 
         pic_profile.setOnClickListener(new View.OnClickListener() {
@@ -253,6 +267,22 @@ public class RegisterActivity extends AppCompatActivity implements DatePickerDia
                 showDatePickerDialog();
             }
         });
+    }
+
+    private void initItems(){
+        item.add("เนื้อปู");
+        item.add("เนื้อเป็ด");
+        item.add("เนื้อปลาหมึก");
+        item.add("เนื้อหอยนางรม");
+        item.add("เนื้อหอยโข่ง");
+        item.add("เนื้อห่าน");
+        item.add("เนื้อตะพาบ");
+        item.add("เนื้อเต่า");
+        item.add("เนื้อกระต่าย");
+        item.add("เนื้อปลาไหล");
+        item.add("เนื้อหอยเชลล์");
+        item.add("เนื้อปลา");
+
     }
 
     public void showDatePickerDialog() {
