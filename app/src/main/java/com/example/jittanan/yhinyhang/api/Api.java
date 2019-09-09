@@ -2,10 +2,12 @@ package com.example.jittanan.yhinyhang.api;
 
 import com.example.jittanan.yhinyhang.models.DefaultResponse;
 import com.example.jittanan.yhinyhang.models.LoginResponse;
+import com.example.jittanan.yhinyhang.models.Menuresponse;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
 import retrofit2.http.POST;
 
 public interface Api {
@@ -40,4 +42,7 @@ public interface Api {
             @Field("num_yhang") double num_yhang,
             @Field("email_user") String email
     );
+
+    @GET("getmenu.php")
+    Call<Menuresponse> getmenu();
 }

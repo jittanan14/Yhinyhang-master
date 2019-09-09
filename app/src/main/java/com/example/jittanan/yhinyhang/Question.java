@@ -85,7 +85,7 @@ public class Question extends AppCompatActivity implements View.OnClickListener 
                 confirmAll();
                 break;
             case R.id.button_back_login :
-                Intent intent = new Intent(Question.this, LoginAvtivity.class);
+                Intent intent = new Intent(Question.this, LoginActivity.class);
                 startActivity(intent);
         }
     }

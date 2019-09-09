@@ -3,6 +3,7 @@ package com.example.jittanan.yhinyhang;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
@@ -10,11 +11,11 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.jittanan.yhinyhang.Fragments.Fragment_foodcomment;
@@ -22,6 +23,7 @@ import com.example.jittanan.yhinyhang.Fragments.Fragment_graph;
 import com.example.jittanan.yhinyhang.Fragments.Fragment_profile;
 import com.example.jittanan.yhinyhang.Fragments.Fragment_search;
 import com.example.jittanan.yhinyhang.api.RetrofitClient;
+import com.miguelcatalan.materialsearchview.MaterialSearchView;
 
 
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
@@ -35,6 +37,9 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     TextView text_create;
     ActionBar toolbar;
     Button logout;
+    ListView lstView ;
+    MaterialSearchView searchView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,19 +48,20 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         getSupportActionBar().hide();
 
         toolbar = getSupportActionBar();
-
         logout = findViewById(R.id.button_logout);
         text_create = findViewById(R.id.text_create);
         logout = findViewById(R.id.button_logout);
         sp = getSharedPreferences(PREF_NAME, MODE_PRIVATE);
         edit = sp.edit();
-
+//        searchView = findViewById(R.id.search_view);
+        lstView = (ListView)findViewById(R.id.lstView);
+//        getToServer(lstView);
         logout.setVisibility(View.GONE);
 
-        if (!sp.getBoolean("SIGNIN", false)) {
-            startActivity(new Intent(MainActivity.this, LoginAvtivity.class));
-            finish();
-        } else {
+//        if (!sp.getBoolean("SIGNIN", false)) {
+//            startActivity(new Intent(MainActivity.this, LoginActivity.class));
+//            finish();
+//        } else {
             logout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -72,7 +78,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                             edit.clear();
                             edit.commit();
 
-                            startActivity(new Intent(MainActivity.this, LoginAvtivity.class));
+                            startActivity(new Intent(MainActivity.this, LoginActivity.class));
                             finish();
                         }
                     });
@@ -97,9 +103,11 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
             BottomNavigationView navigation = findViewById(R.id.bottom_navigation);
             navigation.setOnNavigationItemSelectedListener(this);
 
-        }
+//        }
 
     }
+
+
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -135,6 +143,32 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         transaction.addToBackStack(null);
         transaction.commit();
     }
+
+//    public void getToServer(final View view) {
+//        Call<Menuresponse> call = RetrofitClient.getInstance().getApi().getmenu();
+//        call.enqueue(new Callback<Menuresponse>() {
+//            @Override
+//            public void onResponse(Call<Menuresponse> call, Response<Menuresponse> response) {
+//                Menuresponse res = response.body();
+//                List<com.example.jittanan.yhinyhang.models.Menu> menu = res.getMenu();
+//
+//                if(res.isStatus() == true) {
+//
+//                    if (menu.size() != 0) {
+//                        CustomAdapter cus = new CustomAdapter(view.getContext(), R.layout.fragment_search, menu);
+//                        lstView.setAdapter(cus);
+//
+//                    }
+//                }
+//
+//            }
+//
+//            @Override
+//            public void onFailure(Call<Menuresponse> call, Throwable t) {
+//
+//            }
+//        });
+//    }
 }
 
 

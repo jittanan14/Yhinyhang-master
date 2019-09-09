@@ -9,11 +9,7 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <FrameLayout
-        android:id="@+id/frame_container"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
@@ -43,6 +39,15 @@
     </android.support.v7.widget.Toolbar>
 
 
+    <FrameLayout
+        android:id="@+id/frame_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbar"
+        android:layout_marginBottom="57dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+
+        />
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/bottom_navigation"
@@ -52,6 +57,7 @@
         android:background="@drawable/gradient_bg2"
         app:itemBackground="@null"
         app:itemIconTint="#000000"
+
         app:itemTextColor="#000000"
         app:menu="@menu/bottom_navigation" />
 

@@ -2,8 +2,8 @@ package com.example.jittanan.yhinyhang;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
@@ -18,7 +18,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class LoginAvtivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
 
     RetrofitClient retro;
     EditText text_email;
@@ -60,7 +60,7 @@ public class LoginAvtivity extends AppCompatActivity {
         signUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(LoginAvtivity.this, RegisterActivity.class));
+                startActivity(new Intent(LoginActivity.this, MainActivity.class));
                 finish();
             }
         });
@@ -104,7 +104,7 @@ public class LoginAvtivity extends AppCompatActivity {
                     System.out.println(response.body().getMessages());
                     System.out.println(response.body().getUser().getEmail());
 
-//                    Toast.makeText(LoginAvtivity.this, response.body().getMessages(), Toast.LENGTH_LONG).show();
+//                    Toast.makeText(LoginActivity.this, response.body().getMessages(), Toast.LENGTH_LONG).show();
 
                     String email      = response.body().getUser().getEmail();
                     String username   = response.body().getUser().getUsername();
@@ -133,18 +133,18 @@ public class LoginAvtivity extends AppCompatActivity {
                     edit.putBoolean("SIGNIN", true);
                     edit.commit();
 
-                    Intent intent = new Intent(LoginAvtivity.this, Question.class);
+                    Intent intent = new Intent(LoginActivity.this, Question.class);
                     startActivity(intent);
 
                 } else {
-                    Toast.makeText(LoginAvtivity.this, response.body().getMessages(), Toast.LENGTH_LONG).show();
+                    Toast.makeText(LoginActivity.this, response.body().getMessages(), Toast.LENGTH_LONG).show();
                 }
 
             }
 
             @Override
             public void onFailure(Call<LoginResponse> call, Throwable t) {
-                Toast.makeText(LoginAvtivity.this, "ไม่ได้เชื่อมต่ออินเทอร์เน็ต", Toast.LENGTH_LONG).show();
+                Toast.makeText(LoginActivity.this, "ไม่ได้เชื่อมต่ออินเทอร์เน็ต", Toast.LENGTH_LONG).show();
             }
         });
 
