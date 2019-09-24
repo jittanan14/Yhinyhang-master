@@ -226,7 +226,6 @@ public class Question extends AppCompatActivity implements View.OnClickListener 
     public void setQuestion() {
         questionArray = new ArrayList<>();
         questionArray.add(" ");
-
         questionArray.add("คุณมีอาการหน้าซีดบ่อยแค่ไหน ?");
         questionArray.add("คุณหายใจเบาบ่อยแค่ไหน ?");
         questionArray.add("คุณขี้หนาวบ่อยแค่ไหน ?");

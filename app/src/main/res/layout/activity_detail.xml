@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_white"
+    tools:context=".DetailActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_detail"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:background="@drawable/gradient_bg"
+        android:baselineAligned="false" />
+
+    <TextView
+        android:id="@+id/text_detail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/printable4u"
+        android:gravity="center"
+        android:text="รายละเอียด"
+        android:textColor="#708090"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/button_back_listmenu"
+        android:layout_width="41dp"
+        android:layout_height="33dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/ic_back" />
+
+    <ImageView
+        android:id="@+id/img_menu_detail"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_below="@+id/toolbar_detail"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp" />
+
+    <TextView
+        android:id="@+id/name_menu_detail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/img_menu_detail"
+        android:layout_marginTop="15dp"
+        android:text="ชื่ออาหาร" />
+
+    <TextView
+        android:id="@+id/cate_menu_detail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/name_menu_detail"
+        android:layout_marginTop="15dp"
+        android:text="ประเภทอาหาร"
+
+        />
+
+
+    <LinearLayout
+        android:id="@+id/layout_ingre"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_below="@+id/cate_menu_detail"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginRight="30dp"
+        android:background="@drawable/bg_pattern"
+        android:orientation="vertical">
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_howto"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_below="@+id/layout_ingre"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginRight="30dp"
+        android:background="@drawable/bg_pattern"
+        android:orientation="vertical">
+
+    </LinearLayout>
+
+
+</RelativeLayout>

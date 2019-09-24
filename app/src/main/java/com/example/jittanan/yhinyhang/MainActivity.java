@@ -58,10 +58,10 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 //        getToServer(lstView);
         logout.setVisibility(View.GONE);
 
-//        if (!sp.getBoolean("SIGNIN", false)) {
-//            startActivity(new Intent(MainActivity.this, LoginActivity.class));
-//            finish();
-//        } else {
+        if (!sp.getBoolean("SIGNIN", false)) {
+            startActivity(new Intent(MainActivity.this, LoginActivity.class));
+            finish();
+        }
             logout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

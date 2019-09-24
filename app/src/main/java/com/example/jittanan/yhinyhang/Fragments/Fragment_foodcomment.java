@@ -1,14 +1,17 @@
 package com.example.jittanan.yhinyhang.Fragments;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.example.jittanan.yhinyhang.Adapter.CustomAdapter;
+import com.example.jittanan.yhinyhang.DetailActivity;
 import com.example.jittanan.yhinyhang.R;
 import com.example.jittanan.yhinyhang.api.RetrofitClient;
 import com.example.jittanan.yhinyhang.models.Menu;
@@ -26,6 +29,7 @@ import retrofit2.Response;
 public class Fragment_foodcomment extends Fragment {
 
     ListView listmenu;
+
     public Fragment_foodcomment() {
         // Required empty public constructor
     }
@@ -46,27 +50,36 @@ public class Fragment_foodcomment extends Fragment {
     public void getToServer(final View view) {
         Call<Menuresponse> call = RetrofitClient.getInstance().getApi().getmenu();
         call.enqueue(new Callback<Menuresponse>() {
-         @Override
-         public void onResponse(Call<Menuresponse> call, Response<Menuresponse> response) {
-            Menuresponse res = response.body();
-            List<Menu> menu = res.getMenu();
+            @Override
+            public void onResponse(Call<Menuresponse> call, Response<Menuresponse> response) {
+                Menuresponse res = response.body();
+                List<Menu> menu = res.getMenu();
 
-            if(res.isStatus() == true) {
+                if (res.isStatus() == true) {
 
-                if (menu.size() != 0) {
-                    CustomAdapter cus = new CustomAdapter(view.getContext(), R.layout.listview_row, menu);
-                    listmenu.setAdapter(cus);
+                    if (menu.size() != 0) {
+                        CustomAdapter cus = new CustomAdapter(view.getContext(), R.layout.listview_row, menu);
+                        listmenu.setAdapter(cus);
 
+                    }
                 }
+
             }
 
-         }
+            @Override
+            public void onFailure(Call<Menuresponse> call, Throwable t) {
 
-         @Override
-         public void onFailure(Call<Menuresponse> call, Throwable t) {
+            }
+        });
 
-         }
-     });
+        listmenu.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(getContext(), DetailActivity.class);
+                intent.putExtra("position", i);
+                startActivity(intent);
+            }
+        });
     }
 
 

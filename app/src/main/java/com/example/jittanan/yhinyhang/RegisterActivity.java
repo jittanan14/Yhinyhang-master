@@ -50,7 +50,6 @@ public class RegisterActivity extends AppCompatActivity implements DatePickerDia
     TextView yhinyhang;
     ImageView profile;
     Button back_login;
-
     TextInputLayout Text_Email;
     TextInputLayout Pass_word;
     TextInputLayout confirm_pass;
@@ -97,9 +96,11 @@ public class RegisterActivity extends AppCompatActivity implements DatePickerDia
         spinnerDialog.bindOnSpinerListener(new OnSpinerItemClick() {
             @Override
             public void onClick(String item, int position) {
+
                food_lose.setText(item);
             }
         });
+
 
        food_lose = (TextView)findViewById(R.id.food_lose_textview);
        food_lose.setOnClickListener(new View.OnClickListener() {
@@ -270,6 +271,7 @@ public class RegisterActivity extends AppCompatActivity implements DatePickerDia
     }
 
     private void initItems(){
+        item.add("ไม่มี");
         item.add("เนื้อปู");
         item.add("เนื้อเป็ด");
         item.add("เนื้อปลาหมึก");
@@ -688,7 +690,6 @@ public class RegisterActivity extends AppCompatActivity implements DatePickerDia
             public void onResponse(Call<DefaultResponse> call, Response<DefaultResponse> response) {
                 if (response.body().isStatus()) {
                     Toast.makeText(RegisterActivity.this, "สมัครสมาชิกสำเร็จ", Toast.LENGTH_LONG).show();
-
                     Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
                     startActivity(intent);
                     finish();
