@@ -25,8 +25,8 @@
                 android:layout_width="120dp"
                 android:layout_height="120dp"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="70dp"
-                android:src="@drawable/user" />
+                android:layout_marginTop="40dp"
+                android:src="@drawable/ic_person_black_24dp" />
 
             <LinearLayout
                 android:id="@+id/layout_dataprofile"
@@ -223,6 +223,32 @@
                     android:layout_marginTop="10dp"
                     android:fontFamily="@font/printable4u"
                     android:textSize="18dp" />
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_Gotoquestion"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/layout_all"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_ok"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/printable4u"
+                    android:gravity="center_horizontal"
+                    android:text="แบบสอบถาม"
+                    android:textSize="23dp"
+                    android:textStyle="bold"
+
+                    />
 
             </LinearLayout>
 

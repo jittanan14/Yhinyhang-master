@@ -1,15 +1,17 @@
 package com.example.jittanan.yhinyhang.Fragments;
 
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.jittanan.yhinyhang.Question;
 import com.example.jittanan.yhinyhang.R;
 import com.squareup.picasso.Picasso;
 
@@ -27,6 +29,7 @@ public class Fragment_profile extends Fragment {
 
     private SharedPreferences sp;
     private String PREF_NAME = "Log in";
+    private LinearLayout layout_Gotoquestion;
 
     public Fragment_profile() {
         // Required empty public constructor
@@ -38,7 +41,7 @@ public class Fragment_profile extends Fragment {
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
 
         userProfile = view.findViewById(R.id.user_profile);
-
+        layout_Gotoquestion = view.findViewById(R.id.layout_Gotoquestion);
         sp = getActivity().getSharedPreferences(PREF_NAME, MODE_PRIVATE);
 
         emailTextView = view.findViewById(R.id.email_text_view);
@@ -95,8 +98,16 @@ public class Fragment_profile extends Fragment {
         }
 
 
+        layout_Gotoquestion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getContext(), Question.class));
+            }
+        });
 
         return view;
     }
+
+
 
 }

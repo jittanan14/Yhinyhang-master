@@ -3,9 +3,9 @@ package com.example.jittanan.yhinyhang;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -13,7 +13,6 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
-
 
 import com.example.jittanan.yhinyhang.api.RetrofitClient;
 import com.example.jittanan.yhinyhang.models.DefaultResponse;
@@ -202,10 +201,17 @@ public class Question extends AppCompatActivity implements View.OnClickListener 
 
     public void checkButton(View v) {
         int radioId = radioGroup.getCheckedRadioButtonId();
+//        radioButton = findViewById(radioId);
+
+//        Toast.makeText(this, String.valueOf(radioId), Toast.LENGTH_SHORT).show();
+
+        Score[index] = getScore(radioId);
         radioButton = findViewById(radioId);
 
-        int score = Integer.parseInt(radioButton.getText().toString());
-        Score[index] = score;
+
+
+//        int score = Integer.parseInt(radioButton.getText().toString());
+//        Score[index] = score;
 
 
         if (index == questionArray.size() - 1) {
@@ -215,11 +221,28 @@ public class Question extends AppCompatActivity implements View.OnClickListener 
             button_next.setEnabled(true);
         }
 
+//        Toast.makeText(this, Integer.toString(score), Toast.LENGTH_SHORT).show();
 
+    }
 
-        Toast.makeText(this, Integer.toString(score), Toast.LENGTH_SHORT).show();
-
-
+    private int getScore(int radioId) {
+        switch (radioId) {
+            case R.id.radioButton1 :
+                Score[index] = 1;
+                break;
+            case R.id.radioButton2 :
+                Score[index] = 2;
+                break;
+            case R.id.radioButton3 :
+                Score[index] = 3;
+                break;
+            case R.id.radioButton4 :
+                Score[index] = 4;
+                break;
+            case R.id.radioButton5 :
+                Score[index] = 5;
+                break;
+        }
     }
 
 
