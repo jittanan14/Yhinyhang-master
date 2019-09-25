@@ -12,7 +12,6 @@ import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.jittanan.yhinyhang.api.RetrofitClient;
 import com.example.jittanan.yhinyhang.models.DefaultResponse;
@@ -35,6 +34,7 @@ public class Question extends AppCompatActivity implements View.OnClickListener 
     RadioGroup radioGroup;
     RetrofitClient retro ;
     String email;
+    TextView textView_numberques;
     private SharedPreferences sp;
     private String PREF_NAME = "Log in";
 
@@ -55,6 +55,7 @@ public class Question extends AppCompatActivity implements View.OnClickListener 
         sp = getSharedPreferences(PREF_NAME, MODE_PRIVATE);
 
         Text_question = findViewById(R.id.Text_question);
+        textView_numberques = findViewById(R.id.textview_numberques);
         button_next = findViewById(R.id.button_next_question);
         button_next.setOnClickListener(this);
         button_previous = findViewById(R.id.button_previous_question);
@@ -94,6 +95,7 @@ public class Question extends AppCompatActivity implements View.OnClickListener 
             index--;
 
         Text_question.setText(index + ". " + questionArray.get(index));
+        textView_numberques.setText(index+"/"+"21");
 
         setAnswer(Score[index]);
 
@@ -109,6 +111,7 @@ public class Question extends AppCompatActivity implements View.OnClickListener 
             index++;
 
         Text_question.setText(index + ". " + questionArray.get(index));
+        textView_numberques.setText(index+"/"+"21");
 
         int score = Score[index];
         if (index == questionArray.size() - 1) {
@@ -228,20 +231,16 @@ public class Question extends AppCompatActivity implements View.OnClickListener 
     private int getScore(int radioId) {
         switch (radioId) {
             case R.id.radioButton1 :
-                Score[index] = 1;
-                break;
+                return 1;
             case R.id.radioButton2 :
-                Score[index] = 2;
-                break;
+                return 2;
             case R.id.radioButton3 :
-                Score[index] = 3;
-                break;
+                return 3;
             case R.id.radioButton4 :
-                Score[index] = 4;
-                break;
+                return 4;
             case R.id.radioButton5 :
-                Score[index] = 5;
-                break;
+                return 5;
+                default: return 0;
         }
     }
 
@@ -277,6 +276,7 @@ public class Question extends AppCompatActivity implements View.OnClickListener 
 
 
         Text_question.setText(index + ". " + questionArray.get(1));
+        textView_numberques.setText(index+"/"+"21");
         button_previous.setVisibility(View.GONE);
         button_confirmall.setVisibility(View.GONE);
     }
@@ -312,7 +312,6 @@ public class Question extends AppCompatActivity implements View.OnClickListener 
             builder.setMessage("หยินของคุณคือ " + s1 + "\nหยางของคุณคือ " + s2+"\n\nร่างกายของคุณมีความเป็นหยางมากกว่า");
             builder.setIcon(R.drawable.ic_yang);
         }
-
 
         //set cancelable
         builder.setCancelable(true);

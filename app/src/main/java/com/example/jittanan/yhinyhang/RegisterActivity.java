@@ -139,7 +139,12 @@ public class RegisterActivity extends AppCompatActivity implements DatePickerDia
                 startActivityForResult(Intent.createChooser(intent, "Select Image from Gallery"), SELECT_IMAGE);
             }
         });
-
+        back_login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(RegisterActivity.this,LoginActivity.class));
+            }
+        });
         //Add data_member to database server
         okay = findViewById(R.id.submit_button);
         okay.setOnClickListener(new View.OnClickListener() {

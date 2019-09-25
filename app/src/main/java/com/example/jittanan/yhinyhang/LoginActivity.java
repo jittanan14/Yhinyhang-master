@@ -133,7 +133,7 @@ public class LoginActivity extends AppCompatActivity {
                     edit.putBoolean("SIGNIN", true);
                     edit.commit();
 
-                    Intent intent = new Intent(LoginActivity.this, Question.class);
+                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                     startActivity(intent);
 
                 } else {

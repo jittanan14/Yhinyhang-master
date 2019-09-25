@@ -35,7 +35,7 @@
                 android:layout_below="@+id/layout_all"
                 android:layout_centerVertical="true"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/gradient_bg"
+                android:background="#FFFF"
                 android:orientation="vertical"
                 android:padding="10dp">
 
@@ -45,7 +45,7 @@
                     android:layout_height="wrap_content"
                     android:drawableLeft="@drawable/ic_person"
                     android:fontFamily="@font/printable4u"
-                    android:text="ชื่อผู้ใช้"
+                    android:text=" ชื่อผู้ใช้"
                     android:textSize="18dp" />
 
 
@@ -56,7 +56,7 @@
                     android:layout_marginTop="20dp"
                     android:drawableLeft="@drawable/ic_email2"
                     android:fontFamily="@font/printable4u"
-                    android:text="อีเมล :"
+                    android:text=" อีเมล :"
                     android:textSize="18dp" />
 
                 <TextView
@@ -66,7 +66,7 @@
                     android:layout_marginTop="20dp"
                     android:drawableLeft="@drawable/ic_wc_black_24dp"
                     android:fontFamily="@font/printable4u"
-                    android:text="เพศ :"
+                    android:text=" เพศ :"
                     android:textSize="18dp" />
 
                 <TextView
@@ -74,9 +74,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
-                    android:drawableLeft="@drawable/ic_calendar"
+                    android:drawableLeft="@drawable/ic_cake_black_24dp"
                     android:fontFamily="@font/printable4u"
-                    android:text="วันเกิด :"
+                    android:text=" วันเกิด :"
                     android:textSize="18dp" />
 
                 <TextView
@@ -86,7 +86,7 @@
                     android:layout_marginTop="20dp"
                     android:drawableLeft="@drawable/ic_drop"
                     android:fontFamily="@font/printable4u"
-                    android:text="ธาตุ :"
+                    android:text=" ธาตุ :"
                     android:textSize="18dp" />
 
                 <TextView
@@ -96,7 +96,7 @@
                     android:layout_marginTop="20dp"
                     android:drawableLeft="@drawable/ic_harvest"
                     android:fontFamily="@font/printable4u"
-                    android:text="วัตถุดิบอาหารที่แพ้ :"
+                    android:text=" วัตถุดิบอาหารที่แพ้ :"
                     android:textSize="18dp" />
 
 
@@ -109,7 +109,7 @@
                 android:layout_below="@+id/layout_all"
                 android:layout_centerVertical="true"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/bg_cancel"
+                android:background="@drawable/bg_black"
                 android:orientation="vertical"
                 android:padding="10dp">
 
@@ -120,6 +120,7 @@
                     android:gravity="center_horizontal"
                     android:text="แก้ไขข้อมูลส่วนตัว"
                     android:textSize="23dp"
+                    android:textColor="#FFFF"
                     android:textStyle="bold"
 
                     />
@@ -134,7 +135,7 @@
                 android:layout_below="@+id/layout_all"
                 android:layout_centerVertical="true"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/gradient_bg"
+                android:background="#FFFF"
                 android:orientation="vertical"
                 android:padding="10dp">
 
@@ -235,7 +236,7 @@
                 android:layout_below="@+id/layout_all"
                 android:layout_centerVertical="true"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/bg_ok"
+                android:background="@drawable/bg_black"
                 android:orientation="vertical"
                 android:padding="10dp">
 
@@ -245,6 +246,7 @@
                     android:fontFamily="@font/printable4u"
                     android:gravity="center_horizontal"
                     android:text="แบบสอบถาม"
+                    android:textColor="#FFFF"
                     android:textSize="23dp"
                     android:textStyle="bold"
 

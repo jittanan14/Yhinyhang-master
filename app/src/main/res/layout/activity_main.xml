@@ -15,7 +15,7 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="55dp"
-        android:background="@drawable/gradient_bg2"
+        android:background="#070707"
         android:baselineAligned="false">
 
         <TextView
@@ -26,7 +26,7 @@
             android:layout_marginTop="10dp"
             android:fontFamily="@font/printable4u"
             android:text="รายการอาหารที่แนะนำ"
-            android:textColor="#708090"
+            android:textColor="#F8F9FA"
             android:textSize="20sp" />
 
         <Button
@@ -54,11 +54,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="@drawable/gradient_bg2"
+        android:background="#070707"
         app:itemBackground="@null"
-        app:itemIconTint="#000000"
-
-        app:itemTextColor="#000000"
+        app:itemIconTint="#FAF9F9"
+        app:itemTextColor="#FCFAFA"
         app:menu="@menu/bottom_navigation" />
 
 </RelativeLayout>
