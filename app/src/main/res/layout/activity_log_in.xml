@@ -8,41 +8,33 @@
     android:orientation="vertical"
     tools:context=".LoginActivity">
 
-    <RelativeLayout
-        android:id="@+id/yhin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true">
-
-
-
-        <TextView
-            android:id="@+id/yhinyhang"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="270dp"
-            android:fontFamily="@font/printable4u"
-            android:text="YIN YANG"
-            android:textColor="#F5F3F3"
-            android:textSize="50dp"
-            android:textStyle="bold"
-            />
-
-
-    </RelativeLayout>
 
     <LinearLayout
         android:id="@+id/layout1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/yhin"
         android:layout_centerVertical="true"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="1dp"
         android:layout_marginRight="20dp"
         android:background="@drawable/bg_main2"
         android:orientation="vertical"
         android:padding="10dp">
+
+
+
+        <TextView
+            android:id="@+id/yhinyhang"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/printable4u"
+            android:text=" YIN YANG "
+            android:textColor="#000"
+            android:textSize="50dp"
+            android:textStyle="bold"
+            android:gravity="center_horizontal"
+            />
+
+
 
         <EditText
             android:id="@+id/TextEmail_login"
@@ -92,7 +84,7 @@
                 android:fontFamily="@font/printable4u"
                 android:gravity="center"
                 android:text="Sign in"
-                android:textSize="40px"
+                android:textSize="50px"
                 android:textStyle="bold"
 
                 />
@@ -120,7 +112,7 @@
                 android:fontFamily="@font/printable4u"
                 android:gravity="center"
                 android:text="Sign up"
-                android:textSize="40px"
+                android:textSize="50px"
                 android:textStyle="bold"
 
                 />

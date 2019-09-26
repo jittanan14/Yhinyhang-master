@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".TableQuestionActivity">
+
+    <LinearLayout
+        android:id="@+id/layout_table"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true">
+
+
+        <TableLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/bt1"
+                    android:layout_width="60dp"
+                    android:layout_height="37dp"
+                    android:background="@drawable/bg_table"
+                    android:gravity="center"
+                    android:text="1"
+                    android:textColor="#000"
+                    android:textSize="18dp"
+                    
+                    />
+
+                <TextView
+                    android:id="@+id/bt2"
+                    android:layout_width="60dp"
+                    android:layout_height="37dp"
+                    android:background="@drawable/bg_table"
+                    android:gravity="center"
+                    android:text="2"
+                    android:textColor="#000"
+                    android:textSize="18dp" />
+
+
+                <TextView
+                    android:id="@+id/bt3"
+                    android:layout_width="60dp"
+                    android:layout_height="37dp"
+                    android:background="@drawable/bg_table"
+                    android:gravity="center"
+                    android:text="3"
+                    android:textColor="#000"
+                    android:textSize="18dp" />
+
+                <TextView
+                    android:id="@+id/bt4"
+                    android:layout_width="60dp"
+                    android:layout_height="37dp"
+                    android:background="@drawable/bg_table"
+                    android:gravity="center"
+                    android:text="4"
+                    android:textColor="#000"
+                    android:textSize="18dp" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/bt5"
+                    android:layout_width="60dp"
+                    android:layout_height="37dp"
+                    android:background="@drawable/bg_table"
+                    android:text="5"
+                    android:gravity="center"
+                    android:textSize="18dp"
+                    android:textColor="#000"
+                    />
+
+                <TextView
+                    android:id="@+id/bt6"
+                    android:layout_width="60dp"
+                    android:layout_height="37dp"
+                    android:background="@drawable/bg_table"
+                    android:text="6"
+                    android:gravity="center"
+                    android:textSize="18dp"
+                    android:textColor="#000"
+                    />
+
+                <TextView
+                    android:id="@+id/bt7"
+                    android:layout_width="60dp"
+                    android:layout_height="37dp"
+                    android:background="@drawable/bg_table"
+                    android:text="7"
+                    android:gravity="center"
+                    android:textSize="18dp"
+                    android:textColor="#000"
+                    />
+
+                <TextView
+                    android:id="@+id/bt8"
+                    android:layout_width="60dp"
+                    android:layout_height="37dp"
+                    android:background="@drawable/bg_table"
+                    android:text="8"
+                    android:gravity="center"
+                    android:textSize="18dp"
+                    android:textColor="#000"
+                    />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/bt9"
+                    android:layout_width="60dp"
+                    android:layout_height="37dp"
+                    android:background="@drawable/bg_table"
+                    android:text="9"
+                    android:gravity="center"
+                    android:textSize="18dp"
+                    android:textColor="#000"
+                    />
+
+                <TextView
+                    android:id="@+id/bt10"
+                    android:layout_width="60dp"
+                    android:layout_height="37dp"
+                    android:background="@drawable/bg_table"
+                    android:text="10"
+                    android:gravity="center"
+                    android:textSize="18dp"
+                    android:textColor="#000"
+                    />
+
+                <TextView
+                    android:id="@+id/bt11"
+                    android:layout_width="60dp"
+                    android:layout_height="37dp"
+                    android:background="@drawable/bg_table"
+                    android:text="11"
+                    android:gravity="center"
+                    android:textSize="18dp"
+                    android:textColor="#000"
+                    />
+
+                <TextView
+                    android:id="@+id/bt12"
+                    android:layout_width="60dp"
+                    android:layout_height="37dp"
+                    android:background="@drawable/bg_table"
+                    android:text="12"
+                    android:gravity="center"
+                    android:textSize="18dp"
+                    android:textColor="#000"
+                    />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/bt13"
+                    android:layout_width="60dp"
+                    android:layout_height="37dp"
+                    android:background="@drawable/bg_table"
+                    android:text="13"
+                    android:gravity="center"
+                    android:textSize="18dp"
+                    android:textColor="#000"
+                    />
+
+                <TextView
+                    android:id="@+id/bt14"
+                    android:layout_width="60dp"
+                    android:layout_height="37dp"
+                    android:background="@drawable/bg_table"
+                    android:text="14"
+                    android:gravity="center"
+                    android:textSize="18dp"
+                    android:textColor="#000"
+                    />
+
+                <TextView
+                    android:id="@+id/bt15"
+                    android:layout_width="60dp"
+                    android:layout_height="37dp"
+                    android:background="@drawable/bg_table"
+                    android:text="15"
+                    android:gravity="center"
+                    android:textSize="18dp"
+                    android:textColor="#000"
+                    />
+
+                <TextView
+                    android:id="@+id/bt16"
+                    android:layout_width="60dp"
+                    android:layout_height="37dp"
+                    android:background="@drawable/bg_table"
+                    android:text="16"
+                    android:gravity="center"
+                    android:textSize="18dp"
+                    android:textColor="#000"
+                    />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/bt17"
+                    android:layout_width="60dp"
+                    android:layout_height="37dp"
+                    android:background="@drawable/bg_table"
+                    android:gravity="center"
+                    android:textSize="18dp"
+                    android:text="17"
+                    android:textColor="#000"
+                    />
+
+                <TextView
+                    android:id="@+id/bt18"
+                    android:layout_width="60dp"
+                    android:layout_height="37dp"
+                    android:background="@drawable/bg_table"
+                    android:text="18"
+                    android:gravity="center"
+                    android:textSize="18dp"
+                    android:textColor="#000"
+                    />
+
+                <TextView
+                    android:id="@+id/bt19"
+                    android:layout_width="60dp"
+                    android:layout_height="37dp"
+                    android:background="@drawable/bg_table"
+                    android:text="19"
+                    android:gravity="center"
+                    android:textSize="18dp"
+                    android:textColor="#000"
+                    />
+                <TextView
+                    android:id="@+id/bt20"
+                    android:layout_width="60dp"
+                    android:layout_height="37dp"
+                    android:background="@drawable/bg_table"
+                    android:text="20"
+                    android:gravity="center"
+                    android:textSize="18dp"
+                    android:textColor="#000"
+                    />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/bt21"
+                    android:layout_width="68dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/bg_table"
+                    android:gravity="center"
+                    android:text="21"
+                    android:textColor="#000"
+                    android:textSize="18dp" />
+
+            </TableRow>
+
+        </TableLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

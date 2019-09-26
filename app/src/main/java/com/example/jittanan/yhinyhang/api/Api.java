@@ -43,6 +43,13 @@ public interface Api {
             @Field("email_user") String email
     );
 
+//    @FormUrlEncoded
+//    @POST("pullyinyang.php")
+//    Call<D>
+
+
     @GET("getmenu.php")
     Call<Menuresponse> getmenu();
+
+
 }

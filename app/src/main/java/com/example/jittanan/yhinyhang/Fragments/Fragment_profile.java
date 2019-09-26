@@ -4,15 +4,19 @@ package com.example.jittanan.yhinyhang.Fragments;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.jittanan.yhinyhang.Question;
 import com.example.jittanan.yhinyhang.R;
+import com.example.jittanan.yhinyhang.api.RetrofitClient;
 import com.squareup.picasso.Picasso;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -26,10 +30,11 @@ public class Fragment_profile extends Fragment {
 
     private CircleImageView userProfile;
     private TextView emailTextView, usernameTextView, genderTextView, birthdayTextView, elementTextView, foodLoseTextView, bodyTextView, numYhinTextView, numYhangTextView;
-
     private SharedPreferences sp;
     private String PREF_NAME = "Log in";
     private LinearLayout layout_Gotoquestion;
+    private SwipeRefreshLayout swipeRefreshLayout;
+    RetrofitClient retro ;
 
     public Fragment_profile() {
         // Required empty public constructor
@@ -43,7 +48,6 @@ public class Fragment_profile extends Fragment {
         userProfile = view.findViewById(R.id.user_profile);
         layout_Gotoquestion = view.findViewById(R.id.layout_Gotoquestion);
         sp = getActivity().getSharedPreferences(PREF_NAME, MODE_PRIVATE);
-
         emailTextView = view.findViewById(R.id.email_text_view);
         usernameTextView = view.findViewById(R.id.username_text_view);
         genderTextView = view.findViewById(R.id.gender_text_view);
@@ -55,6 +59,10 @@ public class Fragment_profile extends Fragment {
         numYhangTextView = view.findViewById(R.id.num_yhang_text_view);
         userProfile = view.findViewById(R.id.user_profile);
 
+        //Pull to Refresh
+        swipeRefreshLayout = view.findViewById(R.id.swipe_refresh_layout);
+
+
 
         String email    = sp.getString("email", "");
         String username = sp.getString("username", "");
@@ -64,8 +72,8 @@ public class Fragment_profile extends Fragment {
         String foodLose = sp.getString("foodLose", "");
         String image    = sp.getString("image", "");
         String body     = sp.getString("body", "");
-        String numYhin  = sp.getString("numYhin", "");
-        String numYhang = sp.getString("numYhang", "");
+      final  String numYhin  = sp.getString("numYhin", "");
+      final  String numYhang = sp.getString("numYhang", "");
 
 
         emailTextView.setText(email);
@@ -105,9 +113,41 @@ public class Fragment_profile extends Fragment {
             }
         });
 
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+           public void onRefresh() {
+
+                Toast.makeText(getContext(),"Refresh",Toast.LENGTH_SHORT).show();
+
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        swipeRefreshLayout.setRefreshing(false);
+
+                    }
+                }, 200);
+
+            }
+        });
+//
+//        Call<User> call = retro.getApi().updateYhinYhang(numYhin,numYhang);
+//        call.enqueue(new Callback<DefaultResponse>() {
+//            @Override
+//            public void onResponse(Call<DefaultResponse> call, Response<DefaultResponse> response) {
+//                DefaultResponse res = response.body();
+////                if(res.isStatus()){
+////
+////                }
+//            }
+//
+//            @Override
+//            public void onFailure(Call<DefaultResponse> call, Throwable t) {
+//
+//            }
+//        });
+
         return view;
     }
 
-
-
 }
+
