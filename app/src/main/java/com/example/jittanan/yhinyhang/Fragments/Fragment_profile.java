@@ -4,22 +4,25 @@ package com.example.jittanan.yhinyhang.Fragments;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.jittanan.yhinyhang.Question;
 import com.example.jittanan.yhinyhang.R;
 import com.example.jittanan.yhinyhang.api.RetrofitClient;
+import com.example.jittanan.yhinyhang.models.User;
 import com.squareup.picasso.Picasso;
 
 import de.hdodenhof.circleimageview.CircleImageView;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 import static android.content.Context.MODE_PRIVATE;
 
@@ -45,6 +48,8 @@ public class Fragment_profile extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
 
+        retro = new RetrofitClient();
+
         userProfile = view.findViewById(R.id.user_profile);
         layout_Gotoquestion = view.findViewById(R.id.layout_Gotoquestion);
         sp = getActivity().getSharedPreferences(PREF_NAME, MODE_PRIVATE);
@@ -64,7 +69,7 @@ public class Fragment_profile extends Fragment {
 
 
 
-        String email    = sp.getString("email", "");
+        final String email    = sp.getString("email", "");
         String username = sp.getString("username", "");
         String gender   = sp.getString("gender", "");
         String birthday = sp.getString("birthday", "");
@@ -72,8 +77,8 @@ public class Fragment_profile extends Fragment {
         String foodLose = sp.getString("foodLose", "");
         String image    = sp.getString("image", "");
         String body     = sp.getString("body", "");
-      final  String numYhin  = sp.getString("numYhin", "");
-      final  String numYhang = sp.getString("numYhang", "");
+        String numYhin  = sp.getString("numYhin", "");
+        String numYhang = sp.getString("numYhang", "");
 
 
         emailTextView.setText(email);
@@ -113,38 +118,51 @@ public class Fragment_profile extends Fragment {
             }
         });
 
-        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-           public void onRefresh() {
-
-                Toast.makeText(getContext(),"Refresh",Toast.LENGTH_SHORT).show();
-
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        swipeRefreshLayout.setRefreshing(false);
-
-                    }
-                }, 200);
-
-            }
-        });
-//
-//        Call<User> call = retro.getApi().updateYhinYhang(numYhin,numYhang);
-//        call.enqueue(new Callback<DefaultResponse>() {
+        //Refresh
+//        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
 //            @Override
-//            public void onResponse(Call<DefaultResponse> call, Response<DefaultResponse> response) {
-//                DefaultResponse res = response.body();
-////                if(res.isStatus()){
-////
-////                }
-//            }
+//           public void onRefresh() {
 //
-//            @Override
-//            public void onFailure(Call<DefaultResponse> call, Throwable t) {
+//
+//                Toast.makeText(getContext(),"Refresh",Toast.LENGTH_SHORT).show();
+//
+//                new Handler().postDelayed(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        swipeRefreshLayout.setRefreshing(false);
+//
+//                    }
+//                }, 200);
 //
 //            }
 //        });
+
+
+        Call<User> call = retro.getApi().getYinyang(email);
+        call.enqueue(new Callback<User>() {
+            @Override
+            public void onResponse(Call<User> call, Response<User> response) {
+                User user = response.body();
+                String email =    user.getEmail();
+                String username  = user.getUsername();
+                String gender =     user.getGender();
+                String birthday =    user.getBirthday();
+                String element =    user.getElement();
+                String food =    user.getFood();
+                String yin =    user.getNum_yhin();
+                String yang =    user.getNum_yhang();
+
+                numYhinTextView.setText(yin);
+                numYhangTextView.setText(yang);
+
+            }
+
+            @Override
+            public void onFailure(Call<User> call, Throwable t) {
+                Log.e("getyinyang",t.getMessage());
+
+            }
+        });
 
         return view;
     }

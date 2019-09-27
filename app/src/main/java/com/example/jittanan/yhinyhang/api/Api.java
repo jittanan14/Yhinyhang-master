@@ -3,6 +3,7 @@ package com.example.jittanan.yhinyhang.api;
 import com.example.jittanan.yhinyhang.models.DefaultResponse;
 import com.example.jittanan.yhinyhang.models.LoginResponse;
 import com.example.jittanan.yhinyhang.models.Menuresponse;
+import com.example.jittanan.yhinyhang.models.User;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -43,9 +44,12 @@ public interface Api {
             @Field("email_user") String email
     );
 
-//    @FormUrlEncoded
-//    @POST("pullyinyang.php")
-//    Call<D>
+    @FormUrlEncoded
+    @POST("getyinyang.php")
+    Call<User> getYinyang(
+            @Field("email_user") String email
+
+    );
 
 
     @GET("getmenu.php")
