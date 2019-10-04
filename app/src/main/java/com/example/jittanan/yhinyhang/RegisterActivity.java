@@ -3,12 +3,14 @@ package com.example.jittanan.yhinyhang;
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.content.ActivityNotFoundException;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.design.widget.TextInputLayout;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -150,7 +152,30 @@ public class RegisterActivity extends AppCompatActivity implements DatePickerDia
         okay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                userSignUp();
+                android.support.v7.app.AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this, R.style.AlertDialogCustom);
+                builder.setMessage("ยืนยันข้อมูลส่วนตัวของคุณหรือไม่");
+                //set cancelable
+                builder.setCancelable(true);
+                //set positive / yes button
+
+                builder.setPositiveButton("ตกลง", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        userSignUp();
+                    }
+                });
+                builder.setNegativeButton("ยกเลิก", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                    }
+                });
+
+                //create alert dialog
+                AlertDialog alertdialog = builder.create();
+                //show alert dialog
+                alertdialog.show();
+
             }
         });
 

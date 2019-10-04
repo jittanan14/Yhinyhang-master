@@ -12,7 +12,7 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="55dp"
-        android:background="@drawable/gradient_bg"
+        android:background="#000"
         android:baselineAligned="false" />
 
     <Button
@@ -32,7 +32,7 @@
         android:fontFamily="@font/printable4u"
         android:gravity="center"
         android:text="แบบสอบถาม"
-        android:textColor="#708090"
+        android:textColor="#FFF"
         android:textSize="20sp" />
 
 
@@ -51,7 +51,7 @@
             android:layout_below="@id/toolbar"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="50dp"
-            android:background="@drawable/gradient_bg"
+            android:background="@drawable/bg_login_text"
             android:orientation="vertical">
 
             <TextView
@@ -75,13 +75,18 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="checkButton"
-                    android:text="ไม่เป็นเลย" />
+                    android:fontFamily="@font/printable4u"
+                    android:textSize="20dp"
+                    android:text="ไม่เป็นเลย"
+                    />
 
                 <RadioButton
                     android:id="@+id/radioButton2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="checkButton"
+                    android:fontFamily="@font/printable4u"
+                    android:textSize="20dp"
                     android:text="เป็นน้อย" />
 
                 <RadioButton
@@ -89,6 +94,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="checkButton"
+                    android:fontFamily="@font/printable4u"
+                    android:textSize="20dp"
                     android:text="เป็นปานกลาง" />
 
                 <RadioButton
@@ -96,6 +103,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="checkButton"
+                    android:fontFamily="@font/printable4u"
+                    android:textSize="20dp"
                     android:text="เป็นบ่อย" />
 
                 <RadioButton
@@ -103,6 +112,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="checkButton"
+                    android:fontFamily="@font/printable4u"
+                    android:textSize="20dp"
                     android:text="เป็นตลอดเวลา" />
 
             </RadioGroup>
@@ -122,18 +133,20 @@
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="16dp"
-                android:background="@drawable/gradient_bg"
+                android:background="@drawable/bg_black"
                 android:fontFamily="@font/printable4u"
                 android:text="ก่อนหน้า"
+                android:textColor="#FFF"
                 android:textSize="20dp" />
 
             <Button
                 android:id="@+id/button_next_question"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:background="@drawable/gradient_bg"
+                android:background="@drawable/bg_black"
                 android:fontFamily="@font/printable4u"
                 android:text="ต่อไป"
+                android:textColor="#FFF"
                 android:textSize="20dp" />
 
         </LinearLayout>
@@ -151,7 +164,7 @@
                 android:id="@+id/button_confirmall"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
-                android:background="@drawable/bg_ok"
+                android:background="@drawable/bg_grey"
                 android:fontFamily="@font/printable4u"
                 android:text="ยืนยัน"
                 android:textSize="20dp" />

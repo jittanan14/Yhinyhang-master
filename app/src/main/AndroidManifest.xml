@@ -14,22 +14,21 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".TableQuestionActivity" />
-        <activity android:name=".DetailActivity">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
-            
-        </activity>
+        <activity android:name=".EditprofileActivity" />
+        <activity android:name=".Question_list" />
+        <activity android:name=".Question_layout" />
+        <activity android:name=".DetailActivity" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".LoadingActivity" />
         <activity android:name=".Question" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".MainActivity">
-        </activity>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

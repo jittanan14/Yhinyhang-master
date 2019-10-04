@@ -2,6 +2,7 @@ package com.example.jittanan.yhinyhang.Fragments;
 
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -29,7 +30,7 @@ import retrofit2.Response;
 public class Fragment_foodcomment extends Fragment {
 
     ListView listmenu;
-
+    private SharedPreferences sp;
     public Fragment_foodcomment() {
         // Required empty public constructor
     }
@@ -42,6 +43,9 @@ public class Fragment_foodcomment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_foodcomment, container, false);
 
         listmenu = view.findViewById(R.id.list_menu);
+
+
+
         getToServer(view);
         // Inflate the layout for this fragment
         return view;
@@ -59,6 +63,34 @@ public class Fragment_foodcomment extends Fragment {
 
                     if (menu.size() != 0) {
                         CustomAdapter cus = new CustomAdapter(view.getContext(), R.layout.listview_row, menu);
+//                        final String numYhin  = sp.getString("numYhin", "");
+//                        final String numYhang = sp.getString("numYhang", "");
+//                        for(int i=0; menu.size()<=i; i++) {
+//                            Menu me = menu.get(i);
+//                            if(me.getCategory_menu().equals("หยิน")) {
+//                                if (Double.parseDouble(numYhin) < 2.5 && Double.parseDouble(numYhang) == 2.5) {
+//                                        //กินหยินเพิ่มขึ้นให้ถึง 2.5
+//                                }else if(Double.parseDouble(numYhin) < 2.5 && Double.parseDouble(numYhang) < 2.5){
+//                                        //กินหยินและหยางให้ถึง 2.5
+//                                }else if (Double.parseDouble(numYhin) > 2.5 && Double.parseDouble(numYhang) > 2.5){
+//                                        //ลดหยินและหยางให้เหลือแค่ 2.5
+//                                }else if (Double.parseDouble(numYhin) > 2.5 && Double.parseDouble(numYhang) == 2.5){
+//                                        //ลดหยินให้เท่ากับ 2.5
+//                                }
+//                            }else if (me.getCategory_menu().equals("หยาง")){
+//                                if (Double.parseDouble(numYhang) > 2.5 && Double.parseDouble(numYhin) == 2.5) {
+//                                    //กินหยางให้เหลือแค่ 2.5
+//                                }else if(Double.parseDouble(numYhang) < 2.5 && Double.parseDouble(numYhin) < 2.5){
+//                                    //กินหยินและหยางให้ถึง 2.5
+//                                }else if (Double.parseDouble(numYhang)  > 2.5 && Double.parseDouble(numYhin) > 2.5){
+//                                    //ลดหยินและหยางให้เหลือแค่ 2.5
+//                                }else if (Double.parseDouble(numYhang) < 2.5 && Double.parseDouble(numYhin) == 2.5){
+//                                    //กินหยางให้เพิ่มขึ้นเท่ากับ 2.5
+//                                }
+//                            }
+//
+//                        }
+
                         listmenu.setAdapter(cus);
 
                     }

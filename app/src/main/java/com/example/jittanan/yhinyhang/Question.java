@@ -247,7 +247,7 @@ public class Question extends AppCompatActivity implements View.OnClickListener 
 
     public void setQuestion() {
         questionArray = new ArrayList<>();
-        questionArray.add(" ");
+        questionArray.add("");
         questionArray.add("คุณมีอาการหน้าซีดบ่อยแค่ไหน ?");
         questionArray.add("คุณหายใจเบาบ่อยแค่ไหน ?");
         questionArray.add("คุณขี้หนาวบ่อยแค่ไหน ?");
@@ -273,7 +273,6 @@ public class Question extends AppCompatActivity implements View.OnClickListener 
         questionArray.add("คุณปัสสาวะบ่อยตอนกลางคืนบ่อยแค่ไหน ?");
 
         Score = new int[questionArray.size()];
-
 
         Text_question.setText(index + ". " + questionArray.get(1));
         textView_numberques.setText(index+"/"+"21");
@@ -359,7 +358,6 @@ public class Question extends AppCompatActivity implements View.OnClickListener 
             else if (i>=14 && i<=21) {
                 sum_yhang += Score[i];
             }
-
         }
 
         sum_yhin = sum_yhin/13;

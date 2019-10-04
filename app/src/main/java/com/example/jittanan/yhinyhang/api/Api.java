@@ -45,12 +45,27 @@ public interface Api {
     );
 
     @FormUrlEncoded
+    @POST("update_profile.php")
+    Call<DefaultResponse> updateProfile (
+            @Field("email_user") String email_user,
+            @Field("Pic_user") String Pic_user,
+            @Field("name_user") String name_user,
+            @Field("food_user") String food_user
+    );
+
+    @FormUrlEncoded
     @POST("getyinyang.php")
     Call<User> getYinyang(
             @Field("email_user") String email
 
     );
 
+    @FormUrlEncoded
+    @POST("getprofile.php")
+    Call<User> getProfile(
+            @Field("email_user") String email
+
+    );
 
     @GET("getmenu.php")
     Call<Menuresponse> getmenu();

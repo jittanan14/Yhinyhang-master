@@ -49,8 +49,6 @@
             android:paddingLeft="20dp"
             android:paddingRight="20dp">
 
-
-
             <de.hdodenhof.circleimageview.CircleImageView
                 xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/pic_user"
@@ -58,7 +56,7 @@
                 android:layout_height="120dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="25dp"
-                android:src="@drawable/ic_account_circle_black_24dp" />
+                android:src="@drawable/ic_user" />
 
         <LinearLayout
             android:id="@+id/layout"
@@ -378,7 +376,8 @@
                     android:textColorHint="#708090"
                     android:hint="กรุณาเลือกวัตถุดิบที่แพ้"
                     android:fontFamily="@font/printable4u"
-                    android:drawableLeft="@drawable/ic_harvest"
+                    android:drawableRight="@drawable/ic_drop_down_arrow"
+                    android:drawableLeft="@drawable/ic_salad_3"
                     android:drawablePadding="5dp"
                     />
 
