@@ -1,4 +1,4 @@
-package com.example.jittanan.yhinyhang;
+package com.example.jittanan.yhinyhang.activities;
 
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
@@ -12,13 +12,13 @@ import android.provider.MediaStore;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Base64;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.jittanan.yhinyhang.R;
 import com.example.jittanan.yhinyhang.api.RetrofitClient;
 import com.example.jittanan.yhinyhang.models.DefaultResponse;
 import com.squareup.picasso.Picasso;
@@ -46,6 +46,7 @@ public class EditprofileActivity extends AppCompatActivity {
     SpinnerDialog spinnerDialog;
     ArrayList<String> item = new ArrayList<>();
     SharedPreferences sp;
+    SharedPreferences.Editor edit ;
     String PREF_NAME = "Log in";
     String image_user = "";
 
@@ -59,9 +60,11 @@ public class EditprofileActivity extends AppCompatActivity {
 
 
         Intent intent = getIntent();
-        String image = intent.getStringExtra("Image");
-        String username = intent.getStringExtra("Username");
+        final String image = intent.getStringExtra("Image");
+         String username = intent.getStringExtra("Username");
         String foodLose = intent.getStringExtra("foodLose");
+
+
 
 
         back_profile = findViewById(R.id.button_back_profile);
@@ -73,12 +76,12 @@ public class EditprofileActivity extends AppCompatActivity {
         editTextUsername = findViewById(R.id.editTextUsername);
         editTextUsername.setText(username);
 
-        Log.e("Image", image);
 
         if(image.isEmpty()) {
-            Picasso.get().load(url.concat(image)).into(CircleImageViewProfile);
-        } else {
             CircleImageViewProfile.setImageResource(R.drawable.ic_user);
+        } else {
+
+            Picasso.get().load(url.concat(image)).into(CircleImageViewProfile);
         }
 
         sp = getSharedPreferences(PREF_NAME, MODE_PRIVATE);
@@ -97,11 +100,16 @@ public class EditprofileActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
 
                         String email = sp.getString("email", "");
-                        String username = editTextUsername.getText().toString().trim();
-                        String food = editText_food.getText().toString().trim();
+                        final String username2 = editTextUsername.getText().toString().trim();
+                        final String food = editText_food.getText().toString().trim();
 
 
-                        Call<DefaultResponse> call = RetrofitClient.getInstance().getApi().updateProfile(email, image_user, username, food);
+                        if(image_user.isEmpty()){
+                            image_user = image;
+
+                        }
+
+                        Call<DefaultResponse> call = RetrofitClient.getInstance().getApi().updateProfile(email, image_user, username2, food);
                         call.enqueue(new Callback<DefaultResponse>() {
                             @Override
                             public void onResponse(Call<DefaultResponse> call, Response<DefaultResponse> response) {
@@ -109,7 +117,15 @@ public class EditprofileActivity extends AppCompatActivity {
 
                                 if (de.isStatus()) {
                                     Toast.makeText(EditprofileActivity.this, "อัพเดทข้อมูลเรียบร้อย", Toast.LENGTH_SHORT);
+
+                                    edit = sp.edit();
+
+                                    edit.putString("image", image_user);
+                                    edit.putString("username",username2);
+                                    edit.putString("foodLose", food);
+                                    edit.commit();
                                     finish();
+
                                 } else {
                                     Toast.makeText(EditprofileActivity.this, "ไม่ผ่าน", Toast.LENGTH_SHORT);
                                 }
@@ -117,7 +133,7 @@ public class EditprofileActivity extends AppCompatActivity {
 
                             @Override
                             public void onFailure(Call<DefaultResponse> call, Throwable t) {
-                                Log.e("aaaa", t.getMessage());
+
                             }
                         });
 

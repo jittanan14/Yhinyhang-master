@@ -1,4 +1,4 @@
-package com.example.jittanan.yhinyhang;
+package com.example.jittanan.yhinyhang.activities;
 
 import android.app.Activity;
 import android.app.DatePickerDialog;
@@ -27,6 +27,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.jittanan.yhinyhang.R;
 import com.example.jittanan.yhinyhang.api.RetrofitClient;
 import com.example.jittanan.yhinyhang.models.DefaultResponse;
 

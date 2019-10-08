@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.example.jittanan.yhinyhang.activities.DetailActivity;
+
 import java.util.ArrayList;
 
 public class Question_list extends AppCompatActivity {

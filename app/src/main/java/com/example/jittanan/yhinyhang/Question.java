@@ -13,6 +13,8 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
+import com.example.jittanan.yhinyhang.activities.LoginActivity;
+import com.example.jittanan.yhinyhang.activities.MainActivity;
 import com.example.jittanan.yhinyhang.api.RetrofitClient;
 import com.example.jittanan.yhinyhang.models.DefaultResponse;
 
@@ -319,7 +321,7 @@ public class Question extends AppCompatActivity implements View.OnClickListener 
         builder.setPositiveButton("ตกลง", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Intent intent = new Intent(Question.this,MainActivity.class);
+                Intent intent = new Intent(Question.this, MainActivity.class);
                 startActivity(intent);
 
             }

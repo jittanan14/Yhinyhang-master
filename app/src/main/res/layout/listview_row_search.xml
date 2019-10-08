@@ -9,9 +9,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-
-        >
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/name_menu_textview"
@@ -68,9 +66,10 @@
                 android:layout_marginBottom="5dp"
                 android:layout_weight="1"
                 android:fontFamily="@font/printable4u"
-                android:textColor="#000000"
                 android:text="ค่าหยิน"
+                android:textColor="#000000"
                 android:textSize="18dp" />
+
             <TextView
                 android:id="@+id/num_yhin_textview"
                 android:layout_width="wrap_content"
@@ -94,8 +93,8 @@
                 android:layout_marginBottom="5dp"
                 android:layout_weight="1"
                 android:fontFamily="@font/printable4u"
-                android:textColor="#000000"
                 android:text="ค่าหยาง"
+                android:textColor="#000000"
                 android:textSize="18dp" />
 
 

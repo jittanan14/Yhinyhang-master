@@ -1,4 +1,4 @@
-package com.example.jittanan.yhinyhang;
+package com.example.jittanan.yhinyhang.activities;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.jittanan.yhinyhang.R;
 import com.example.jittanan.yhinyhang.api.RetrofitClient;
 import com.example.jittanan.yhinyhang.models.LoginResponse;
 

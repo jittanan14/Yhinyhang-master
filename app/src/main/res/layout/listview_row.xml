@@ -27,7 +27,7 @@
 
     <LinearLayout
         android:id="@+id/layout_cate"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/name_menu_textview"
         android:layout_toRightOf="@+id/imageView1">
@@ -41,13 +41,24 @@
 
         <TextView
             android:id="@+id/category_textview"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:layout_weight="1"
             android:fontFamily="@font/printable4u"
             android:text="ประเภท :"
             android:textColor="#000000"
             android:textSize="18dp" />
+
+
+        <ToggleButton
+            android:id="@+id/favorite_toggle_button"
+            android:layout_width="37dp"
+            android:layout_height="37dp"
+            android:layout_marginRight="20dp"
+            android:textOff=""
+            android:textOn=""
+            android:background="@drawable/ic_favorite_border_black_24dp"/>
 
 
     </LinearLayout>
@@ -70,7 +81,7 @@
             android:textSize="18dp" />
 
         <TextView
-            android:id="@+id/num_yhin_textview"
+            android:id="@+id/num_yhin_text_view"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
@@ -95,7 +106,7 @@
 
 
         <TextView
-            android:id="@+id/num_yhang_textview"
+            android:id="@+id/num_yhang_text_view"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"

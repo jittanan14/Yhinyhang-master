@@ -1,9 +1,11 @@
-package com.example.jittanan.yhinyhang;
+package com.example.jittanan.yhinyhang.activities;
 
 import android.content.Intent;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.example.jittanan.yhinyhang.R;
 
 public class LoadingActivity extends AppCompatActivity {
     CountDownTimer cdt;

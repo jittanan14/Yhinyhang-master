@@ -5,8 +5,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.ToggleButton;
 
 import com.example.jittanan.yhinyhang.R;
 import com.example.jittanan.yhinyhang.models.Menu;
@@ -38,19 +40,19 @@ public class CustomAdapter extends ArrayAdapter<Menu> {
         TextView textView_num_yhang_textview = view.findViewById(R.id.num_yhang_textview);
         ImageView ImageView = view.findViewById(R.id.imageView1);
         ImageView img_cate = view.findViewById(R.id.img_category);
-//       final ToggleButton fav = view.findViewById(R.id.favourite);
-//
-//        fav.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-//            @Override
-//            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
-//                if (isChecked == true) {
-//                    fav.setBackgroundResource(R.drawable.ic_favorite_black_24dp);
-//                }
-//                else {
-//                    fav.setBackgroundResource(R.drawable.ic_favorite_border_black_24dp);
-//                }
-//            }
-//        });
+       final ToggleButton fav = view.findViewById(R.id.favourite);
+
+        fav.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+                if (isChecked == true) {
+                    fav.setBackgroundResource(R.drawable.ic_favorite_black_24dp);
+                }
+                else {
+                    fav.setBackgroundResource(R.drawable.ic_favorite_border_black_24dp);
+                }
+            }
+        });
 
         Menu menu = menuList.get(position);
 

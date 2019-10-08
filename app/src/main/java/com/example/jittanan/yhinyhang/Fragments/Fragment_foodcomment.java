@@ -5,15 +5,16 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ListView;
 
-import com.example.jittanan.yhinyhang.Adapter.CustomAdapter;
-import com.example.jittanan.yhinyhang.DetailActivity;
+import com.example.jittanan.yhinyhang.Adapter.MenuRecycleAdapter;
 import com.example.jittanan.yhinyhang.R;
+import com.example.jittanan.yhinyhang.activities.DetailActivity;
 import com.example.jittanan.yhinyhang.api.RetrofitClient;
 import com.example.jittanan.yhinyhang.models.Menu;
 import com.example.jittanan.yhinyhang.models.Menuresponse;
@@ -29,7 +30,7 @@ import retrofit2.Response;
  */
 public class Fragment_foodcomment extends Fragment {
 
-    ListView listmenu;
+    RecyclerView recyclerView;
     private SharedPreferences sp;
     public Fragment_foodcomment() {
         // Required empty public constructor
@@ -37,16 +38,23 @@ public class Fragment_foodcomment extends Fragment {
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_foodcomment, container, false);
 
-        listmenu = view.findViewById(R.id.list_menu);
 
+        //Recycler View
+        recyclerView = view.findViewById(R.id.recycler_view);
+        recyclerView.setHasFixedSize(true);
 
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
+
+        recyclerView.setLayoutManager(linearLayoutManager);
 
         getToServer(view);
+        //Recycler View
+
+
         // Inflate the layout for this fragment
         return view;
     }
@@ -62,7 +70,18 @@ public class Fragment_foodcomment extends Fragment {
                 if (res.isStatus() == true) {
 
                     if (menu.size() != 0) {
-                        CustomAdapter cus = new CustomAdapter(view.getContext(), R.layout.listview_row, menu);
+                        MenuRecycleAdapter adapter = new MenuRecycleAdapter(getContext(), menu);
+                        recyclerView.setAdapter(adapter);
+
+                        adapter.setOnItemClickListener(new MenuRecycleAdapter.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(Menu item) {
+                                Intent intent = new Intent(getContext(), DetailActivity.class);
+                                intent.putExtra("DETAIL", item);
+                                startActivity(intent);
+                            }
+                        });
+
 //                        final String numYhin  = sp.getString("numYhin", "");
 //                        final String numYhang = sp.getString("numYhang", "");
 //                        for(int i=0; menu.size()<=i; i++) {
@@ -91,8 +110,6 @@ public class Fragment_foodcomment extends Fragment {
 //
 //                        }
 
-                        listmenu.setAdapter(cus);
-
                     }
                 }
 
@@ -100,18 +117,10 @@ public class Fragment_foodcomment extends Fragment {
 
             @Override
             public void onFailure(Call<Menuresponse> call, Throwable t) {
-
+                Log.e("Get Menu", t.getMessage());
             }
         });
 
-        listmenu.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(getContext(), DetailActivity.class);
-                intent.putExtra("position", i);
-                startActivity(intent);
-            }
-        });
     }
 
 

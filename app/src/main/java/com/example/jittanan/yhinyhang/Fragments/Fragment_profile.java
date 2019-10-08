@@ -4,18 +4,19 @@ package com.example.jittanan.yhinyhang.Fragments;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.example.jittanan.yhinyhang.EditprofileActivity;
 import com.example.jittanan.yhinyhang.Question;
 import com.example.jittanan.yhinyhang.R;
+import com.example.jittanan.yhinyhang.activities.EditprofileActivity;
 import com.example.jittanan.yhinyhang.api.RetrofitClient;
 import com.example.jittanan.yhinyhang.models.User;
 import com.squareup.picasso.Picasso;
@@ -71,8 +72,8 @@ public class Fragment_profile extends Fragment {
         numYhangTextView = view.findViewById(R.id.num_yhang_text_view);
         userProfile = view.findViewById(R.id.user_profile);
 
-        //Pull to Refresh
-        //swipeRefreshLayout = view.findViewById(R.id.swipe_refresh_layout);
+      //  Pull to Refresh
+        swipeRefreshLayout = view.findViewById(R.id.swipe_refresh_layout);
 
 
         final String email = sp.getString("email", "");
@@ -124,23 +125,28 @@ public class Fragment_profile extends Fragment {
         });
 
         //Refresh
-//        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-//            @Override
-//           public void onRefresh() {
-//
-//
-//                Toast.makeText(getContext(),"Refresh",Toast.LENGTH_SHORT).show();
-//
-//                new Handler().postDelayed(new Runnable() {
-//                    @Override
-//                    public void run() {
-//                        swipeRefreshLayout.setRefreshing(false);
-//
-//                    }
-//                }, 200);
-//
-//            }
-//        });
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+           public void onRefresh() {
+                Toast.makeText(getContext(),"Refresh",Toast.LENGTH_SHORT).show();
+
+//                Fragment frg = null;
+//                frg = getSupportFragmentManager().findFragmentByTag("Fragment_profile");
+//                final FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+//                ft.detach(frg);
+//                ft.attach(frg);
+//                ft.commit();
+
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        swipeRefreshLayout.setRefreshing(false);
+
+                    }
+                }, 1000);
+
+            }
+        });
 
 
 //        edit.putString("email", email);
@@ -164,6 +170,7 @@ public class Fragment_profile extends Fragment {
                 startActivity(intent);
             }
         });
+
 
         Call<User> call2 = retro.getApi().getProfile(email);
         call2.enqueue(new Callback<User>() {
@@ -215,7 +222,7 @@ public class Fragment_profile extends Fragment {
 
             @Override
             public void onFailure(Call<User> call, Throwable t) {
-                Log.e("getyinyang", t.getMessage());
+
 
             }
         });

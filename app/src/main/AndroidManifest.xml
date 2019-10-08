@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.jittanan.yhinyhang">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -14,15 +15,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".EditprofileActivity" />
+        <activity android:name=".activities.EditprofileActivity" />
         <activity android:name=".Question_list" />
         <activity android:name=".Question_layout" />
-        <activity android:name=".DetailActivity" />
-        <activity android:name=".RegisterActivity" />
-        <activity android:name=".LoadingActivity" />
+        <activity android:name=".activities.DetailActivity" />
+        <activity android:name=".activities.RegisterActivity" />
+        <activity android:name=".activities.LoadingActivity" />
         <activity android:name=".Question" />
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".activities.LoginActivity" />
+        <activity android:name=".activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

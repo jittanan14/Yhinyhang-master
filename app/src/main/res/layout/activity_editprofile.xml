@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:background="#E7E7E7"
     android:orientation="vertical"
-    tools:context=".EditprofileActivity">
+    tools:context=".activities.EditprofileActivity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"

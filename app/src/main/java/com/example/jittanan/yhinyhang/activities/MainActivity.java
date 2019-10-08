@@ -1,4 +1,4 @@
-package com.example.jittanan.yhinyhang;
+package com.example.jittanan.yhinyhang.activities;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -22,11 +22,21 @@ import com.example.jittanan.yhinyhang.Fragments.Fragment_foodcomment;
 import com.example.jittanan.yhinyhang.Fragments.Fragment_graph;
 import com.example.jittanan.yhinyhang.Fragments.Fragment_profile;
 import com.example.jittanan.yhinyhang.Fragments.Fragment_search;
+import com.example.jittanan.yhinyhang.R;
 import com.example.jittanan.yhinyhang.api.RetrofitClient;
+import com.example.jittanan.yhinyhang.models.Menu;
 import com.miguelcatalan.materialsearchview.MaterialSearchView;
 
 
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
+
+
+    //Fragments
+    private final Fragment_foodcomment foodFregment = new Fragment_foodcomment();
+    private final Fragment_search searchFragment = new Fragment_search();
+    private final Fragment_graph graphFragment = new Fragment_graph();
+    private final Fragment_profile profileFragment = new Fragment_profile();
+
 
     RetrofitClient retro;
     EditText text_email;
@@ -36,7 +46,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     String PREF_NAME = "Log in";
     TextView text_create;
     ActionBar toolbar;
-    Button logout;
+    Button logout,search;
     ListView lstView ;
     MaterialSearchView searchView;
 
@@ -51,12 +61,24 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         logout = findViewById(R.id.button_logout);
         text_create = findViewById(R.id.text_create);
         logout = findViewById(R.id.button_logout);
+        search = findViewById(R.id.button_search);
+
         sp = getSharedPreferences(PREF_NAME, MODE_PRIVATE);
+
+//        Fragment_search lst = (Fragment_search)getSupportFragmentManager().findFragmentByTag("Fragment_search");
+//        if(lst == null){
+//            lst = new Fragment_search();
+//            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+//            transaction.add(android.R.id.content,lst,"Fragment_search");
+//            transaction.commit();
+//        }
+
         edit = sp.edit();
 //        searchView = findViewById(R.id.search_view);
-        lstView = (ListView)findViewById(R.id.lstView);
+//        lstView = (ListView)findViewById(R.id.list_view_search);
 //        getToServer(lstView);
         logout.setVisibility(View.GONE);
+        search.setVisibility(View.GONE);
 
         if (!sp.getBoolean("SIGNIN", false)) {
             startActivity(new Intent(MainActivity.this, LoginActivity.class));
@@ -114,23 +136,28 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         switch (item.getItemId()) {
             case R.id.food_comment:
                 text_create.setText("รายการอาหารที่แนะนำ");
-                loadFragment(new Fragment_foodcomment());
+                loadFragment(foodFregment);
                 logout.setVisibility(View.GONE);
+                search.setVisibility(View.GONE);
                 return true;
             case R.id.search:
                 text_create.setText("ค้นหาเมนูอาหาร");
-                loadFragment(new Fragment_search());
+                loadFragment(searchFragment);
+                search.setVisibility(View.VISIBLE);
                 logout.setVisibility(View.GONE);
+
                 return true;
             case R.id.graph:
                 text_create.setText("ประวัติการรับประทานอาหาร");
-                loadFragment(new Fragment_graph());
+                loadFragment(graphFragment);
                 logout.setVisibility(View.GONE);
+                search.setVisibility(View.GONE);
                 return true;
             case R.id.profile:
                 text_create.setText("โปรไฟล์ของฉัน");
-                loadFragment(new Fragment_profile());
+                loadFragment(profileFragment);
                 logout.setVisibility(View.VISIBLE);
+                search.setVisibility(View.GONE);
                 return true;
         }
 
@@ -140,7 +167,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     private void loadFragment(Fragment fragment) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.frame_container, fragment);
-        transaction.addToBackStack(null);
+//        transaction.addToBackStack(null);
         transaction.commit();
     }
 
@@ -169,6 +196,12 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 //            }
 //        });
 //    }
+
+
+    public boolean OnCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.menu, (android.view.Menu) menu);
+        return true;
+    }
 }
 
 
